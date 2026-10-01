@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h2>JavaScript Class - DOM (Document Object Model)</h2>
+      <p>This is a paragraph.</p>
+      <button id="myButton">Click me</button>
+    </div>
+
+    <script>
+      const button = document.getElementById("myButton");
+      button.addEventListener("click", () => {
+        alert("Button clicked!");
+      });
+    </script>
+  </body>
+</html>
