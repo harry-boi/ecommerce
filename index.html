@@ -3,20 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Dom class</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <div>
-      <h2>JavaScript Class - DOM (Document Object Model)</h2>
-      <p>This is a paragraph.</p>
-      <button id="myButton">Click me</button>
+    <div
+      class="close-btn hidden absolute top-4 right-4 cursor-pointer text-gray-500 hover:text-gray-700"
+    >
+      <button id="close-btn">✖</button>
     </div>
 
-    <script>
-      const button = document.getElementById("myButton");
-      button.addEventListener("click", () => {
-        alert("Button clicked!");
-      });
-    </script>
+    <div
+      class="flex justify-center items-center h-screen product-visibility-container"
+    >
+      <button
+        class="products-visibility bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+      >
+        Show products
+      </button>
+    </div>
+
+    <div
+      class="products grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-2"
+    >
+      <div
+        class="product-card hidden rounded-2xl border border-gray-200 bg-white p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
+      >
+        <div class="mb-4 pb-2 flex h-20 items-center rounded-xl bg-gray-100">
+          <span class="text-7xl">👟</span>
+        </div>
+        <h2 class="product-title text-xl font-semibold text-gray-900">
+          Sneakers
+        </h2>
+        <p class="price text-2xl font-bold text-green-600">₦25,000</p>
+        <p class="stock text-sm text-gray-600">In stock</p>
+        <button
+          class="buy-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+        >
+          Buy now
+        </button>
+        <br />
+        <button class="text-blue-500 hover:text-blue-700 apply-btn">
+          apply discount
+        </button>
+      </div>
+    </div>
   </body>
+
+  <script>
+    const price = document.querySelector(".price");
+    const discountBtn = document.querySelector(".apply-btn");
+    const visibilityContainer = document.querySelector(
+      ".product-visibility-container",
+    );
+    const closeBtn = document.querySelector(".close-btn");
+
+    discountBtn.addEventListener("click", () => {
+      price.textContent = "₦15,000";
+    });
+
+    const card = document.querySelector(".product-card");
+    const visibilityBtn = document.querySelector(".products-visibility");
+
+    visibilityBtn.addEventListener("click", () => {
+      card.classList.toggle("hidden");
+      visibilityContainer.classList.toggle("hidden");
+
+      card.classList.contains("hidden")
+        ? closeBtn.classList.add("hidden")
+        : closeBtn.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      card.classList.add("hidden");
+      visibilityContainer.classList.remove("hidden");
+      closeBtn.classList.add("hidden");
+    });
+  </script>
 </html>
