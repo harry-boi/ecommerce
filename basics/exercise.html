@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <p></p>
+      <div></div>
+    </div>
+
+    <script>
+      const paragraph = document.createElement("p");
+      const innerContainer = document.createElement("div");
+      const container = document.getElementById("container");
+
+      paragraph.textContent = "Hello world";
+      container.appendChild(paragraph);
+      container.appendChild(innerContainer);
+    </script>
+  </body>
+</html>
